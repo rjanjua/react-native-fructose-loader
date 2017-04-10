@@ -1,13 +1,15 @@
+// @flow
 import fs from 'fs';
 import path from 'path';
 import findup from 'findup';
 import { appName } from '../constants';
+import { CliPathConfig } from './cliResolver';
 
 /**
  * Returns the default value for the specified
  * @param {string} setting Name of the setting
  */
-function getDefaultValue(setting) {
+function getDefaultValue(setting: string): string | string[] {
   switch (setting) {
     case 'pattern':
       return './storybook/stories/index.js';
@@ -73,13 +75,17 @@ function getConfigSettings(packageJsonFile) {
  * }
  * @param {string} processDirectory directory of the currently running process
  */
-export default function resolvePaths(processDirectory, cliConfig) {
+export default function resolvePaths(processDirectory: string, cliConfig: CliPathConfig) {
   const overrides = cliConfig || {};
   // Locate and read package.json
-  const packageJsonFile = path.resolve(findup.sync(processDirectory, 'package.json'), 'package.json');
-  const baseDir = path.dirname(packageJsonFile);
+  const packageJsonFile: string = path.resolve(findup.sync(processDirectory, 'package.json'), 'package.json');
+  const baseDir: string = path.dirname(packageJsonFile);
 
-  const config = Object.assign({}, getConfigSettings(packageJsonFile, baseDir), overrides);
+  const config: {
+    searchDir: string,
+    outputFile: string,
+    pattern: string,
+  } = Object.assign({}, getConfigSettings(packageJsonFile, baseDir), overrides);
   const outputFile = path.resolve(baseDir, config.outputFile);
 
   const outputFiles = [{

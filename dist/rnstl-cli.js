@@ -1378,6 +1378,51 @@ function error(message) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = cliResolver;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CliPathConfig = exports.CliPathConfig = function CliPathConfig() {
+  _classCallCheck(this, CliPathConfig);
+};
+
+function cliResolver(yargv) {
+  if (!yargv || (typeof yargv === 'undefined' ? 'undefined' : _typeof(yargv)) !== 'object') {
+    return new CliPathConfig();
+  }
+
+  var config = new CliPathConfig();
+
+  if (yargv.searchDir && Array.isArray(yargv.searchDir)) {
+    config.searchDir = yargv.searchDir;
+  } else if (yargv.searchDir) {
+    config.searchDir = [yargv.searchDir];
+  }
+
+  if (yargv.outputFile) {
+    config.outputFile = yargv.outputFile;
+  }
+
+  if (yargv.pattern) {
+    config.pattern = yargv.pattern;
+  }
+
+  return config;
+}
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 function preserveCamelCase(str) {
 	var isLastCharLower = false;
 
@@ -1435,7 +1480,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -1444,11 +1489,11 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 14;
+webpackEmptyContext.id = 15;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = realpath
@@ -1520,7 +1565,7 @@ function unmonkeypatch () {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.alphasort = alphasort
@@ -1766,7 +1811,7 @@ function childrenIgnored (self, path) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Approach:
@@ -1812,16 +1857,16 @@ function childrenIgnored (self, path) {
 module.exports = glob
 
 var fs = __webpack_require__(1)
-var rp = __webpack_require__(15)
+var rp = __webpack_require__(16)
 var minimatch = __webpack_require__(6)
 var Minimatch = minimatch.Minimatch
 var inherits = __webpack_require__(68)
-var EE = __webpack_require__(29).EventEmitter
+var EE = __webpack_require__(30).EventEmitter
 var path = __webpack_require__(0)
 var assert = __webpack_require__(11)
 var isAbsolute = __webpack_require__(7)
 var globSync = __webpack_require__(62)
-var common = __webpack_require__(16)
+var common = __webpack_require__(17)
 var alphasort = common.alphasort
 var alphasorti = common.alphasorti
 var setopts = common.setopts
@@ -1831,7 +1876,7 @@ var util = __webpack_require__(2)
 var childrenIgnored = common.childrenIgnored
 var isIgnored = common.isIgnored
 
-var once = __webpack_require__(21)
+var once = __webpack_require__(22)
 
 function glob (pattern, options, cb) {
   if (typeof options === 'function') cb = options, options = {}
@@ -2564,7 +2609,7 @@ Glob.prototype._stat2 = function (f, abs, er, stat, cb) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2592,7 +2637,7 @@ function clone (obj) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(1)
@@ -2621,7 +2666,7 @@ if (/\bgfs4\b/i.test(process.env.NODE_DEBUG || '')) {
   })
 }
 
-module.exports = patch(__webpack_require__(18))
+module.exports = patch(__webpack_require__(19))
 if (process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH) {
   module.exports = patch(fs)
 }
@@ -2860,7 +2905,7 @@ function retry () {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2935,10 +2980,10 @@ Object.keys(gitHosts).forEach(function (name) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var wrappy = __webpack_require__(25)
+var wrappy = __webpack_require__(26)
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
 
@@ -2983,7 +3028,7 @@ function onceStrict (fn) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3058,7 +3103,7 @@ pify.all = pify;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = function (blocking) {
@@ -3071,7 +3116,7 @@ module.exports = function (blocking) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3084,7 +3129,7 @@ var appName = exports.appName = 'react-native-storybook-loader';
 var encoding = exports.encoding = 'utf-8';
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 // Returns a wrapper function that returns a wrapped callback
@@ -3123,7 +3168,7 @@ function wrappy (fn, cb) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -3132,11 +3177,11 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 26;
+webpackEmptyContext.id = 27;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 // lazy Object.assign logic that only works for merging
@@ -3157,12 +3202,12 @@ module.exports = function assign (defaults, configuration) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const path = __webpack_require__(0)
 const inspect = __webpack_require__(2).inspect
-const camelCase = __webpack_require__(13)
+const camelCase = __webpack_require__(14)
 
 const DEFAULT_MARKER = '*'
 
@@ -3497,61 +3542,16 @@ module.exports = function (yargs, usage, validation) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = require("events");
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = cliResolver;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var CliPathConfig = exports.CliPathConfig = function CliPathConfig() {
-  _classCallCheck(this, CliPathConfig);
-};
-
-function cliResolver(yargv) {
-  if (!yargv || (typeof yargv === 'undefined' ? 'undefined' : _typeof(yargv)) !== 'object') {
-    return new CliPathConfig();
-  }
-
-  var config = new CliPathConfig();
-
-  if (yargv.searchDir && Array.isArray(yargv.searchDir)) {
-    config.searchDir = yargv.searchDir;
-  } else if (yargv.searchDir) {
-    config.searchDir = [yargv.searchDir];
-  }
-
-  if (yargv.outputFile) {
-    config.outputFile = yargv.outputFile;
-  }
-
-  if (yargv.pattern) {
-    config.pattern = yargv.pattern;
-  }
-
-  return config;
-}
 
 /***/ }),
 /* 32 */
@@ -3577,7 +3577,9 @@ var _findup = __webpack_require__(57);
 
 var _findup2 = _interopRequireDefault(_findup);
 
-var _constants = __webpack_require__(24);
+var _constants = __webpack_require__(25);
+
+var _cliResolver = __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3603,6 +3605,7 @@ function getDefaultValue(setting) {
  * @param {object} pkg the contents of the package.json in object form.
  * @param {string} setting Name of the setting to look for
  */
+
 function hasConfigSetting(pkg, setting) {
   return pkg.config && pkg.config[_constants.appName] && pkg.config[_constants.appName][setting];
 }
@@ -3721,8 +3724,8 @@ function writeOutStoryLoader(pathConfig) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__dirname) {const argsert = __webpack_require__(114)
-const assign = __webpack_require__(27)
-const Command = __webpack_require__(28)
+const assign = __webpack_require__(28)
+const Command = __webpack_require__(29)
 const Completion = __webpack_require__(115)
 const Parser = __webpack_require__(111)
 const path = __webpack_require__(0)
@@ -3730,7 +3733,7 @@ const Usage = __webpack_require__(117)
 const Validation = __webpack_require__(118)
 const Y18n = __webpack_require__(109)
 const objFilter = __webpack_require__(10)
-const setBlocking = __webpack_require__(23)
+const setBlocking = __webpack_require__(24)
 const applyExtends = __webpack_require__(113)
 const YError = __webpack_require__(5)
 
@@ -6537,7 +6540,7 @@ var fs   = __webpack_require__(1),
   Path   = __webpack_require__(0),
   util   = __webpack_require__(2),
   colors = __webpack_require__(59),
-  EE     = __webpack_require__(29).EventEmitter,
+  EE     = __webpack_require__(30).EventEmitter,
   fsExists = fs.exists ? fs.exists : Path.exists,
   fsExistsSync = fs.existsSync ? fs.existsSync : Path.existsSync;
 
@@ -7335,15 +7338,15 @@ module.exports = globSync
 globSync.GlobSync = GlobSync
 
 var fs = __webpack_require__(1)
-var rp = __webpack_require__(15)
+var rp = __webpack_require__(16)
 var minimatch = __webpack_require__(6)
 var Minimatch = minimatch.Minimatch
-var Glob = __webpack_require__(17).Glob
+var Glob = __webpack_require__(18).Glob
 var util = __webpack_require__(2)
 var path = __webpack_require__(0)
 var assert = __webpack_require__(11)
 var isAbsolute = __webpack_require__(7)
-var common = __webpack_require__(16)
+var common = __webpack_require__(17)
 var alphasort = common.alphasort
 var alphasorti = common.alphasorti
 var setopts = common.setopts
@@ -7947,7 +7950,7 @@ function legacy (fs) {
 /* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var fs = __webpack_require__(18)
+var fs = __webpack_require__(19)
 var constants = __webpack_require__(120)
 
 var origCwd = process.cwd
@@ -8285,7 +8288,7 @@ function chownErOk (er) {
 
 "use strict";
 
-var gitHosts = __webpack_require__(20)
+var gitHosts = __webpack_require__(21)
 
 var GitHost = module.exports = function (type, user, auth, project, committish, defaultRepresentation) {
   var gitHostInfo = this
@@ -8392,8 +8395,8 @@ GitHost.prototype.toString = function () {
 
 "use strict";
 
-var url = __webpack_require__(30)
-var gitHosts = __webpack_require__(20)
+var url = __webpack_require__(31)
+var gitHosts = __webpack_require__(21)
 var GitHost = module.exports = __webpack_require__(65)
 
 var protocolToRepresentationMap = {
@@ -8500,9 +8503,9 @@ function parseGitUrl (giturl) {
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var wrappy = __webpack_require__(25)
+var wrappy = __webpack_require__(26)
 var reqs = Object.create(null)
-var once = __webpack_require__(21)
+var once = __webpack_require__(22)
 
 module.exports = wrappy(inflight)
 
@@ -9033,11 +9036,11 @@ module.exports = {
 "use strict";
 
 var path = __webpack_require__(0);
-var fs = __webpack_require__(19);
+var fs = __webpack_require__(20);
 var stripBom = __webpack_require__(104);
 var parseJson = __webpack_require__(86);
 var Promise = __webpack_require__(4);
-var pify = __webpack_require__(22);
+var pify = __webpack_require__(23);
 
 function parse(x, fp) {
 	return parseJson(stripBom(x), path.relative(process.cwd(), fp));
@@ -9084,7 +9087,7 @@ var hostedGitInfo = __webpack_require__(66)
 var isBuiltinModule = __webpack_require__(72)
 var depTypes = ["dependencies","devDependencies","optionalDependencies"]
 var extractDescription = __webpack_require__(78)
-var url = __webpack_require__(30)
+var url = __webpack_require__(31)
 var typos = __webpack_require__(82)
 
 var fixer = module.exports = {
@@ -10702,9 +10705,9 @@ module.exports.sync = function (fp) {
 
 "use strict";
 
-var fs = __webpack_require__(19);
+var fs = __webpack_require__(20);
 var Promise = __webpack_require__(4);
-var pify = __webpack_require__(22);
+var pify = __webpack_require__(23);
 
 function type(fn, fn2, fp) {
 	if (typeof fp !== 'string') {
@@ -12475,7 +12478,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.loadStories = loadStories;
 
-var _glob = __webpack_require__(17);
+var _glob = __webpack_require__(18);
 
 var _glob2 = _interopRequireDefault(_glob);
 
@@ -12511,7 +12514,7 @@ var _dot = __webpack_require__(54);
 
 var _dot2 = _interopRequireDefault(_dot);
 
-var _constants = __webpack_require__(24);
+var _constants = __webpack_require__(25);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15039,7 +15042,7 @@ webpackEmptyContext.id = 110;
 /* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var camelCase = __webpack_require__(13)
+var camelCase = __webpack_require__(14)
 var path = __webpack_require__(0)
 var tokenizeArgString = __webpack_require__(112)
 var util = __webpack_require__(2)
@@ -15846,7 +15849,7 @@ module.exports = function (argString) {
 
 var fs = __webpack_require__(1)
 var path = __webpack_require__(0)
-var assign = __webpack_require__(27)
+var assign = __webpack_require__(28)
 var YError = __webpack_require__(5)
 
 var previouslyVisitedConfigs = []
@@ -15891,7 +15894,7 @@ module.exports = applyExtends
 /* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const command = __webpack_require__(28)()
+const command = __webpack_require__(29)()
 const YError = __webpack_require__(5)
 
 const positionName = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth']
@@ -16137,7 +16140,7 @@ module.exports = function (a, b) {
 // failures, etc. keeps logging in one place.
 const stringWidth = __webpack_require__(8)
 const objFilter = __webpack_require__(10)
-const setBlocking = __webpack_require__(23)
+const setBlocking = __webpack_require__(24)
 const YError = __webpack_require__(5)
 
 module.exports = function (yargs, y18n) {
@@ -17022,7 +17025,7 @@ var _yargs = __webpack_require__(34);
 
 var _yargs2 = _interopRequireDefault(_yargs);
 
-var _cliResolver = __webpack_require__(31);
+var _cliResolver = __webpack_require__(13);
 
 var _cliResolver2 = _interopRequireDefault(_cliResolver);
 
