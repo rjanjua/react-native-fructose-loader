@@ -1,12 +1,14 @@
 #!/usr/bin/env node
+// @flow
 import yargs from 'yargs/yargs';
 
-import cliResolver from './paths/cliResolver';
+import cliResolver, { CliPathConfig } from './paths/cliResolver';
+import type { CliArguments } from './paths/cliResolver';
 import { info } from './logger';
 import { writeOutStoryLoader } from './storyWriterProcess';
 import resolvePaths from './paths/multiResolver';
 
-const args = yargs()
+const args: CliArguments = yargs()
   .usage('$0 [options]')
   .options({
     searchDir: {
@@ -25,7 +27,7 @@ const args = yargs()
   .help()
   .argv;
 
-const cliConfig = cliResolver(args);
+const cliConfig: CliPathConfig = cliResolver(args);
 const pathConfig = resolvePaths(process.cwd(), cliConfig);
 info('\nGenerating Dynamic Storybook File List\n');
 

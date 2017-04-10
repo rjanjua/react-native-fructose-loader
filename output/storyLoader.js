@@ -3,7 +3,6 @@
 
 function loadStories() {
   
-  require('./../src/paths/CliPathConfig.js');
   require('./../src/paths/cliResolver.js');
   require('./../src/paths/cliResolver.test.js');
   require('./../src/paths/multiResolver.js');

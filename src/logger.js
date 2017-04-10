@@ -3,7 +3,7 @@ import colors from 'colors';
 
 const logger = console;
 
-export function info(message: string, value: string): void {
+export function info(message: string, value: ?string): void {
   const outputValue = value || '';
   logger.log(colors.blue(message), colors.white(outputValue));
 }

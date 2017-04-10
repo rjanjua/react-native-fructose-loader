@@ -1,12 +1,15 @@
-
 // @flow
-import CliPathConfig from './CliPathConfig';
-
-type CliArguments = {
+export type CliArguments = {
   searchDir: ?string | string[],
   outputFile: ?string,
   pattern: ?string,
 };
+
+export class CliPathConfig {
+  searchDir: ?string[];
+  outputFile: ?string;
+  pattern: ?string;
+}
 
 export default function cliResolver(yargv: CliArguments): CliPathConfig {
   if (!yargv || typeof yargv !== 'object') {
