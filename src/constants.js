@@ -1,2 +1,4 @@
-export const appName = 'react-native-storybook-loader';
-export const encoding = 'utf-8';
+// @flow
+
+export const appName : string = 'react-native-storybook-loader';
+export const encoding : string = 'utf-8';

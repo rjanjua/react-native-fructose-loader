@@ -1,9 +1,19 @@
-export default function cliResolver(yargv) {
+
+// @flow
+import CliPathConfig from './CliPathConfig';
+
+type CliArguments = {
+  searchDir: ?string | string[],
+  outputFile: ?string,
+  pattern: ?string,
+};
+
+export default function cliResolver(yargv: CliArguments): CliPathConfig {
   if (!yargv || typeof yargv !== 'object') {
-    return {};
+    return new CliPathConfig();
   }
 
-  const config = {};
+  const config: CliPathConfig = new CliPathConfig();
 
   if (yargv.searchDir && Array.isArray(yargv.searchDir)) {
     config.searchDir = yargv.searchDir;
