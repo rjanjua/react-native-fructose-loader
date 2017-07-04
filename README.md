@@ -1,3 +1,5 @@
+This is a fork of react-native-storybook-loader. It really fits the bill for fructose, unfortunately the cli args don't seem to be working for me at the moment, so until that's fixed, I need to use this somewhat hacked repo so that we can have 2 configs (1 for fructose, another for storybooks)
+
 # react-native-storybook-loader
 [![Build Status](https://travis-ci.org/elderfo/react-native-storybook-loader.svg?branch=master)](https://travis-ci.org/elderfo/react-native-storybook-loader) [![Known Vulnerabilities](https://snyk.io/test/github/elderfo/react-native-storybook-loader/badge.svg)](https://snyk.io/test/github/elderfo/react-native-storybook-loader)
 
