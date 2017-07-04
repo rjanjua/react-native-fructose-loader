@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// identity function for calling harmony imports with the correct context
 /******/ 	__webpack_require__.i = function(value) { return value; };
-
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -46,7 +46,7 @@
 /******/ 			});
 /******/ 		}
 /******/ 	};
-
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -55,15 +55,15 @@
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-
+/******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 122);
+/******/ 	return __webpack_require__(__webpack_require__.s = 98);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -225,7 +225,7 @@ function applyTheme (theme) {
 colors.setTheme = function (theme) {
   if (typeof theme === 'string') {
     try {
-      colors.themes[theme] = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }());
+      colors.themes[theme] = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
       applyTheme(colors.themes[theme]);
       return colors.themes[theme];
     } catch (err) {
@@ -1443,7 +1443,6 @@ webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
 webpackEmptyContext.id = 14;
 
-
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1921,9 +1920,7 @@ function Glob (pattern, options, cb) {
   }
 
   var self = this
-  var n = this.minimatch.set.length
   this._processing = 0
-  this.matches = new Array(n)
 
   this._emitQueue = []
   this._processQueue = []
@@ -2916,7 +2913,7 @@ var gitHostDefaults = {
   'filetemplate': 'https://{domain}/{user}/{project}/raw/{committish}/{path}',
   'shortcuttemplate': '{type}:{user}/{project}{#committish}',
   'pathtemplate': '{user}/{project}{#committish}',
-  'pathmatch': /^[/]([^/]+)[/]([^/]+?)(?:[.]git)?$/
+  'pathmatch': /^[/]([^/]+)[/]([^/]+?)(?:[.]git|[/])?$/
 }
 
 Object.keys(gitHosts).forEach(function (name) {
@@ -2926,7 +2923,7 @@ Object.keys(gitHosts).forEach(function (name) {
   })
   gitHosts[name].protocols_re = RegExp('^(' +
     gitHosts[name].protocols.map(function (protocol) {
-      return protocol.replace(/([\\+*{}()\[\]$^|])/g, '\\$1')
+      return protocol.replace(/([\\+*{}()[\]$^|])/g, '\\$1')
     }).join('|') + '):$')
 })
 
@@ -3077,7 +3074,7 @@ module.exports = function (blocking) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var appName = exports.appName = 'react-native-storybook-loader';
+var appName = exports.appName = 'react-native-fructose-loader';
 var encoding = exports.encoding = 'utf-8';
 
 /***/ }),
@@ -3130,7 +3127,6 @@ webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
 webpackEmptyContext.id = 26;
-
 
 /***/ }),
 /* 27 */
@@ -3275,7 +3271,7 @@ module.exports = function (yargs, usage, validation) {
   // lookup module object from require()d command and derive name
   // if module was not require()d and no name given, throw error
   function moduleName (obj) {
-    const mod = __webpack_require__(107)(obj)
+    const mod = __webpack_require__(108)(obj)
     if (!mod) throw new Error('No command name given for module: ' + inspect(obj))
     return commandFromFilename(mod.filename)
   }
@@ -3678,9 +3674,9 @@ var _logger = __webpack_require__(12);
 
 var logger = _interopRequireWildcard(_logger);
 
-var _storyFinder = __webpack_require__(98);
+var _storyFinder = __webpack_require__(99);
 
-var _writer = __webpack_require__(99);
+var _writer = __webpack_require__(100);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -3710,18 +3706,18 @@ function writeOutStoryLoader(pathConfig) {
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__dirname) {const argsert = __webpack_require__(114)
+/* WEBPACK VAR INJECTION */(function(__dirname) {const argsert = __webpack_require__(115)
 const assign = __webpack_require__(27)
 const Command = __webpack_require__(28)
-const Completion = __webpack_require__(115)
-const Parser = __webpack_require__(111)
+const Completion = __webpack_require__(116)
+const Parser = __webpack_require__(112)
 const path = __webpack_require__(0)
-const Usage = __webpack_require__(117)
-const Validation = __webpack_require__(118)
-const Y18n = __webpack_require__(109)
+const Usage = __webpack_require__(118)
+const Validation = __webpack_require__(119)
+const Y18n = __webpack_require__(110)
 const objFilter = __webpack_require__(10)
 const setBlocking = __webpack_require__(23)
-const applyExtends = __webpack_require__(113)
+const applyExtends = __webpack_require__(114)
 const YError = __webpack_require__(5)
 
 var exports = module.exports = Yargs
@@ -4051,7 +4047,7 @@ function Yargs (processArgs, cwd, parentRequire) {
 
   self.commandDir = function (dir, opts) {
     argsert('<string> [object]', [dir, opts], arguments.length)
-    const req = parentRequire || !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }())
+    const req = parentRequire || !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())
     command.addDirectory(dir, self.getContext(), req, __webpack_require__(61)(), opts)
     return self
   }
@@ -4207,7 +4203,7 @@ function Yargs (processArgs, cwd, parentRequire) {
     var obj = {}
     try {
       obj = readPkgUp.sync({
-        cwd: path || __webpack_require__(96)(parentRequire || !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }())),
+        cwd: path || __webpack_require__(96)(parentRequire || !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
         normalize: false
       })
     } catch (noop) {}
@@ -4279,7 +4275,7 @@ function Yargs (processArgs, cwd, parentRequire) {
         self.demand(key, demand)
       }
 
-      if ('demandOption' in opt) {
+      if (opt.demandOption) {
         self.demandOption(key, typeof opt.demandOption === 'string' ? opt.demandOption : undefined)
       }
 
@@ -4634,7 +4630,7 @@ function Yargs (processArgs, cwd, parentRequire) {
 
   self.terminalWidth = function () {
     argsert([], 0)
-    return process.stdout.columns
+    return typeof process.stdout.columns !== 'undefined' ? process.stdout.columns : null
   }
 
   Object.defineProperty(self, 'argv', {
@@ -4695,7 +4691,8 @@ function Yargs (processArgs, cwd, parentRequire) {
         var handlerKeys = command.getCommands()
         if (handlerKeys.length) {
           var firstUnknownCommand
-          for (var i = 0, cmd; (cmd = argv._[i]) !== undefined; i++) {
+          for (var i = 0, cmd; argv._[i] !== undefined; i++) {
+            cmd = String(argv._[i])
             if (~handlerKeys.indexOf(cmd) && cmd !== completionCommand) {
               setPlaceholderKeys(argv)
               return command.runCommand(cmd, self, parsed)
@@ -4747,21 +4744,24 @@ function Yargs (processArgs, cwd, parentRequire) {
       }
 
       // Handle 'help' and 'version' options
-      Object.keys(argv).forEach(function (key) {
-        if (key === helpOpt && argv[key]) {
-          if (exitProcess) setBlocking(true)
+      // if we haven't already output help!
+      if (!hasOutput) {
+        Object.keys(argv).forEach(function (key) {
+          if (key === helpOpt && argv[key]) {
+            if (exitProcess) setBlocking(true)
 
-          skipValidation = true
-          self.showHelp('log')
-          self.exit(0)
-        } else if (key === versionOpt && argv[key]) {
-          if (exitProcess) setBlocking(true)
+            skipValidation = true
+            self.showHelp('log')
+            self.exit(0)
+          } else if (key === versionOpt && argv[key]) {
+            if (exitProcess) setBlocking(true)
 
-          skipValidation = true
-          usage.showVersion()
-          self.exit(0)
-        }
-      })
+            skipValidation = true
+            usage.showVersion()
+            self.exit(0)
+          }
+        })
+      }
 
       // Check if any of the options to skip validation were provided
       if (!skipValidation && options.skipValidation.length > 0) {
@@ -4848,7 +4848,9 @@ module.exports = function () {
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 module.exports = balanced;
 function balanced(a, b, str) {
@@ -5022,7 +5024,7 @@ function expand(str, isTop) {
   var isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
   var isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(m.body);
   var isSequence = isNumericSequence || isAlphaSequence;
-  var isOptions = /^(.*,)+(.+)?$/.test(m.body);
+  var isOptions = m.body.indexOf(',') >= 0;
   if (!isSequence && !isOptions) {
     // {a},b}
     if (m.post.match(/,.*\}/)) {
@@ -5140,7 +5142,7 @@ module.exports = Object.keys(process.binding('natives')).filter(function (el) {
 
 var stringWidth = __webpack_require__(8)
 var stripAnsi = __webpack_require__(9)
-var wrap = __webpack_require__(108)
+var wrap = __webpack_require__(109)
 var align = {
   right: alignRight,
   center: alignCenter
@@ -5760,7 +5762,7 @@ module['exports'] = function () {
   colors.setTheme = function (theme) {
     if (typeof theme === 'string') {
       try {
-        colors.themes[theme] = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }());
+        colors.themes[theme] = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
         applyTheme(colors.themes[theme]);
         return colors.themes[theme];
       } catch (err) {
@@ -6045,10 +6047,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;// doT.js
 // 2011-2014, Laura Doktorova, https://github.com/olado/doT
 // Licensed under the MIT license.
 
-(function() {
+(function () {
 	"use strict";
 
 	var doT = {
+		name: "doT",
 		version: "1.1.1",
 		templateSettings: {
 			evaluate:    /\{\{([\s\S]+?(\}?)+)\}\}/g,
@@ -6364,9 +6367,8 @@ var errorEx = function errorEx(name, properties) {
 
 		Error.call(this, message);
 		Error.captureStackTrace(this, errorExError);
-		this.name = name;
 
-		delete this.message;
+		this.name = name;
 
 		Object.defineProperty(this, 'message', {
 			configurable: true,
@@ -6375,9 +6377,14 @@ var errorEx = function errorEx(name, properties) {
 				var newMessage = message.split(/\r?\n/g);
 
 				for (var key in properties) {
-					if (properties.hasOwnProperty(key) && 'message' in properties[key]) {
-						newMessage = properties[key].message(this[key], newMessage) ||
-							newMessage;
+					if (!properties.hasOwnProperty(key)) {
+						continue;
+					}
+
+					var modifier = properties[key];
+
+					if ('message' in modifier) {
+						newMessage = modifier.message(this[key], newMessage) || newMessage;
 						if (!isArrayish(newMessage)) {
 							newMessage = [newMessage];
 						}
@@ -6393,9 +6400,18 @@ var errorEx = function errorEx(name, properties) {
 
 		var stackDescriptor = Object.getOwnPropertyDescriptor(this, 'stack');
 		var stackGetter = stackDescriptor.get;
+		var stackValue = stackDescriptor.value;
+		delete stackDescriptor.value;
+		delete stackDescriptor.writable;
 
 		stackDescriptor.get = function () {
-			var stack = stackGetter.call(this).split(/\r?\n+/g);
+			var stack = (stackGetter)
+				? stackGetter.call(this).split(/\r?\n+/g)
+				: stackValue.split(/\r?\n+/g);
+
+			// starting in Node 7, the stack builder caches the message.
+			// just replace it.
+			stack[0] = this.name + ': ' + this.message;
 
 			var lineCount = 1;
 			for (var key in properties) {
@@ -6408,7 +6424,7 @@ var errorEx = function errorEx(name, properties) {
 				if ('line' in modifier) {
 					var line = modifier.line(this[key]);
 					if (line) {
-						stack.splice(lineCount, 0, '    ' + line);
+						stack.splice(lineCount++, 0, '    ' + line);
 					}
 				}
 
@@ -6423,7 +6439,12 @@ var errorEx = function errorEx(name, properties) {
 		Object.defineProperty(this, 'stack', stackDescriptor);
 	};
 
-	util.inherits(errorExError, Error);
+	if (Object.setPrototypeOf) {
+		Object.setPrototypeOf(errorExError.prototype, Error.prototype);
+		Object.setPrototypeOf(errorExError, Error);
+	} else {
+		util.inherits(errorExError, Error);
+	}
 
 	return errorExError;
 };
@@ -6632,7 +6653,6 @@ webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
 webpackEmptyContext.id = 58;
 
-
 /***/ }),
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6667,7 +6687,7 @@ THE SOFTWARE.
 
 var isHeadless = false;
 
-if (true) {
+if (typeof module !== 'undefined') {
   isHeadless = true;
 }
 
@@ -6855,7 +6875,7 @@ exports.addSequencer('zebra', function (letter, i, exploded) {
 exports.setTheme = function (theme) {
   if (typeof theme === 'string') {
     try {
-      exports.themes[theme] = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }());
+      exports.themes[theme] = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
       applyTheme(exports.themes[theme]);
       return exports.themes[theme];
     } catch (err) {
@@ -7813,7 +7833,7 @@ GlobSync.prototype._makeAbs = function (f) {
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stream = __webpack_require__(121).Stream
+var Stream = __webpack_require__(123).Stream
 
 module.exports = legacy
 
@@ -7938,7 +7958,7 @@ function legacy (fs) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(18)
-var constants = __webpack_require__(120)
+var constants = __webpack_require__(121)
 
 var origCwd = process.cwd
 var cwd = null
@@ -8276,8 +8296,9 @@ function chownErOk (er) {
 "use strict";
 
 var gitHosts = __webpack_require__(20)
+var extend = Object.assign || __webpack_require__(2)._extend
 
-var GitHost = module.exports = function (type, user, auth, project, committish, defaultRepresentation) {
+var GitHost = module.exports = function (type, user, auth, project, committish, defaultRepresentation, opts) {
   var gitHostInfo = this
   gitHostInfo.type = type
   Object.keys(gitHosts[type]).forEach(function (key) {
@@ -8288,6 +8309,7 @@ var GitHost = module.exports = function (type, user, auth, project, committish, 
   gitHostInfo.project = project
   gitHostInfo.committish = committish
   gitHostInfo.default = defaultRepresentation
+  gitHostInfo.opts = opts || {}
 }
 GitHost.prototype = {}
 
@@ -8295,9 +8317,10 @@ GitHost.prototype.hash = function () {
   return this.committish ? '#' + this.committish : ''
 }
 
-GitHost.prototype._fill = function (template, vars) {
+GitHost.prototype._fill = function (template, opts) {
   if (!template) return
-  if (!vars) vars = {}
+  var vars = extend({}, opts)
+  opts = extend(extend({}, this.opts), opts)
   var self = this
   Object.keys(this).forEach(function (key) {
     if (self[key] != null && vars[key] == null) vars[key] = self[key]
@@ -8308,71 +8331,82 @@ GitHost.prototype._fill = function (template, vars) {
     vars[key] = encodeURIComponent(vars[key])
   })
   vars['auth@'] = rawAuth ? rawAuth + '@' : ''
-  vars['#committish'] = rawComittish ? '#' + rawComittish : ''
-  vars['/tree/committish'] = vars.committish
-                          ? '/' + vars.treepath + '/' + vars.committish
-                          : ''
-  vars['/committish'] = vars.committish ? '/' + vars.committish : ''
-  vars.committish = vars.committish || 'master'
+  if (opts.noCommittish) {
+    vars['#committish'] = ''
+    vars['/tree/committish'] = ''
+    vars['/comittish'] = ''
+    vars.comittish = ''
+  } else {
+    vars['#committish'] = rawComittish ? '#' + rawComittish : ''
+    vars['/tree/committish'] = vars.committish
+                            ? '/' + vars.treepath + '/' + vars.committish
+                            : ''
+    vars['/committish'] = vars.committish ? '/' + vars.committish : ''
+    vars.committish = vars.committish || 'master'
+  }
   var res = template
   Object.keys(vars).forEach(function (key) {
     res = res.replace(new RegExp('[{]' + key + '[}]', 'g'), vars[key])
   })
-  return res
+  if (opts.noGitPlus) {
+    return res.replace(/^git[+]/, '')
+  } else {
+    return res
+  }
 }
 
-GitHost.prototype.ssh = function () {
-  return this._fill(this.sshtemplate)
+GitHost.prototype.ssh = function (opts) {
+  return this._fill(this.sshtemplate, opts)
 }
 
-GitHost.prototype.sshurl = function () {
-  return this._fill(this.sshurltemplate)
+GitHost.prototype.sshurl = function (opts) {
+  return this._fill(this.sshurltemplate, opts)
 }
 
-GitHost.prototype.browse = function () {
-  return this._fill(this.browsetemplate)
+GitHost.prototype.browse = function (opts) {
+  return this._fill(this.browsetemplate, opts)
 }
 
-GitHost.prototype.docs = function () {
-  return this._fill(this.docstemplate)
+GitHost.prototype.docs = function (opts) {
+  return this._fill(this.docstemplate, opts)
 }
 
-GitHost.prototype.bugs = function () {
-  return this._fill(this.bugstemplate)
+GitHost.prototype.bugs = function (opts) {
+  return this._fill(this.bugstemplate, opts)
 }
 
-GitHost.prototype.https = function () {
-  return this._fill(this.httpstemplate)
+GitHost.prototype.https = function (opts) {
+  return this._fill(this.httpstemplate, opts)
 }
 
-GitHost.prototype.git = function () {
-  return this._fill(this.gittemplate)
+GitHost.prototype.git = function (opts) {
+  return this._fill(this.gittemplate, opts)
 }
 
-GitHost.prototype.shortcut = function () {
-  return this._fill(this.shortcuttemplate)
+GitHost.prototype.shortcut = function (opts) {
+  return this._fill(this.shortcuttemplate, opts)
 }
 
-GitHost.prototype.path = function () {
-  return this._fill(this.pathtemplate)
+GitHost.prototype.path = function (opts) {
+  return this._fill(this.pathtemplate, opts)
 }
 
-GitHost.prototype.tarball = function () {
-  return this._fill(this.tarballtemplate)
+GitHost.prototype.tarball = function (opts) {
+  return this._fill(this.tarballtemplate, opts)
 }
 
-GitHost.prototype.file = function (P) {
-  return this._fill(this.filetemplate, {
+GitHost.prototype.file = function (P, opts) {
+  return this._fill(this.filetemplate, extend({
     path: P.replace(/^[/]+/g, '')
-  })
+  }, opts))
 }
 
 GitHost.prototype.getDefaultRepresentation = function () {
   return this.default
 }
 
-GitHost.prototype.toString = function () {
-  return (this[this.default] || this.sshurl).call(this)
+GitHost.prototype.toString = function (opts) {
+  return (this[this.default] || this.sshurl).call(this, opts)
 }
 
 
@@ -8406,37 +8440,55 @@ var authProtocols = {
   'git+http:': true
 }
 
-module.exports.fromUrl = function (giturl) {
+var cache = {}
+
+module.exports.fromUrl = function (giturl, opts) {
+  var key = giturl + JSON.stringify(opts || {})
+
+  if (!(key in cache)) {
+    cache[key] = fromUrl(giturl, opts)
+  }
+
+  return cache[key]
+}
+
+function fromUrl (giturl, opts) {
   if (giturl == null || giturl === '') return
   var url = fixupUnqualifiedGist(
     isGitHubShorthand(giturl) ? 'github:' + giturl : giturl
   )
   var parsed = parseGitUrl(url)
+  var shortcutMatch = url.match(new RegExp('^([^:]+):(?:(?:[^@:]+(?:[^@]+)?@)?([^/]*))[/](.+?)(?:[.]git)?($|#)'))
   var matches = Object.keys(gitHosts).map(function (gitHostName) {
-    var gitHostInfo = gitHosts[gitHostName]
-    var auth = null
-    if (parsed.auth && authProtocols[parsed.protocol]) {
-      auth = decodeURIComponent(parsed.auth)
+    try {
+      var gitHostInfo = gitHosts[gitHostName]
+      var auth = null
+      if (parsed.auth && authProtocols[parsed.protocol]) {
+        auth = decodeURIComponent(parsed.auth)
+      }
+      var committish = parsed.hash ? decodeURIComponent(parsed.hash.substr(1)) : null
+      var user = null
+      var project = null
+      var defaultRepresentation = null
+      if (shortcutMatch && shortcutMatch[1] === gitHostName) {
+        user = shortcutMatch[2] && decodeURIComponent(shortcutMatch[2])
+        project = decodeURIComponent(shortcutMatch[3])
+        defaultRepresentation = 'shortcut'
+      } else {
+        if (parsed.host !== gitHostInfo.domain) return
+        if (!gitHostInfo.protocols_re.test(parsed.protocol)) return
+        if (!parsed.path) return
+        var pathmatch = gitHostInfo.pathmatch
+        var matched = parsed.path.match(pathmatch)
+        if (!matched) return
+        if (matched[1] != null) user = decodeURIComponent(matched[1].replace(/^:/, ''))
+        if (matched[2] != null) project = decodeURIComponent(matched[2])
+        defaultRepresentation = protocolToRepresentation(parsed.protocol)
+      }
+      return new GitHost(gitHostName, user, auth, project, committish, defaultRepresentation, opts)
+    } catch (ex) {
+      if (!(ex instanceof URIError)) throw ex
     }
-    var committish = parsed.hash ? decodeURIComponent(parsed.hash.substr(1)) : null
-    var user = null
-    var project = null
-    var defaultRepresentation = null
-    if (parsed.protocol === gitHostName + ':') {
-      user = decodeURIComponent(parsed.host)
-      project = parsed.path && decodeURIComponent(parsed.path.replace(/^[/](.*?)(?:[.]git)?$/, '$1'))
-      defaultRepresentation = 'shortcut'
-    } else {
-      if (parsed.host !== gitHostInfo.domain) return
-      if (!gitHostInfo.protocols_re.test(parsed.protocol)) return
-      var pathmatch = gitHostInfo.pathmatch
-      var matched = parsed.path.match(pathmatch)
-      if (!matched) return
-      if (matched[1] != null) user = decodeURIComponent(matched[1])
-      if (matched[2] != null) project = decodeURIComponent(matched[2])
-      defaultRepresentation = protocolToRepresentation(parsed.protocol)
-    }
-    return new GitHost(gitHostName, user, auth, project, committish, defaultRepresentation)
   }).filter(function (gitHostInfo) { return gitHostInfo })
   if (matches.length !== 1) return
   return matches[0]
@@ -8466,7 +8518,7 @@ function fixupUnqualifiedGist (giturl) {
 
 function parseGitUrl (giturl) {
   if (typeof giturl !== 'string') giturl = '' + giturl
-  var matched = giturl.match(/^([^@]+)@([^:]+):[/]?((?:[^/]+[/])?[^/]+?)(?:[.]git)?(#.*)?$/)
+  var matched = giturl.match(/^([^@]+)@([^:/]+):[/]?((?:[^/]+[/])?[^/]+?)(?:[.]git)?(#.*)?$/)
   if (!matched) return url.parse(giturl)
   return {
     protocol: 'git+ssh:',
@@ -9024,7 +9076,7 @@ module.exports = {
 
 var path = __webpack_require__(0);
 var fs = __webpack_require__(19);
-var stripBom = __webpack_require__(104);
+var stripBom = __webpack_require__(105);
 var parseJson = __webpack_require__(86);
 var Promise = __webpack_require__(4);
 var pify = __webpack_require__(22);
@@ -9069,7 +9121,7 @@ function extractDescription (d) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var semver = __webpack_require__(97)
-var validateLicense = __webpack_require__(105);
+var validateLicense = __webpack_require__(106);
 var hostedGitInfo = __webpack_require__(66)
 var isBuiltinModule = __webpack_require__(72)
 var depTypes = ["dependencies","devDependencies","optionalDependencies"]
@@ -9359,7 +9411,6 @@ var fixer = module.exports = {
       return delete data.homepage
     }
     if(!url.parse(data.homepage).protocol) {
-      this.warn("missingProtocolHomepage")
       data.homepage = "http://" + data.homepage
     }
   }
@@ -9516,6 +9567,7 @@ function makeTypoWarning (providedName, probableName, field) {
   return util.format(messages.typo, providedName, probableName)
 }
 
+
 /***/ }),
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9531,7 +9583,7 @@ var fieldsToFix = ['name','version','description','repository','modules','script
                   ,'files','bin','man','bugs','keywords','readme','homepage','license']
 var otherThingsToFix = ['dependencies','people', 'typos']
 
-var thingsToFix = fieldsToFix.map(function(fieldName) { 
+var thingsToFix = fieldsToFix.map(function(fieldName) {
   return ucFirst(fieldName) + "Field"
 })
 // two ways to do this in CoffeeScript on only one line, sub-70 chars:
@@ -9544,8 +9596,8 @@ function normalize (data, warn, strict) {
   if(!strict) strict = false
   if(!warn || data.private) warn = function(msg) { /* noop */ }
 
-  if (data.scripts && 
-      data.scripts.install === "node-gyp rebuild" && 
+  if (data.scripts &&
+      data.scripts.install === "node-gyp rebuild" &&
       !data.scripts.preinstall) {
     data.gypfile = true
   }
@@ -9629,7 +9681,6 @@ module.exports = {
 	"emptyNormalizedBugs": "Normalized value of bugs field is an empty object. Deleted.",
 	"nonUrlHomepage": "homepage field must be a string url. Deleted.",
 	"invalidLicense": "license should be a valid SPDX license expression",
-	"missingProtocolHomepage": "homepage field must start with a protocol.",
 	"typo": "%s should probably be %s."
 };
 
@@ -9650,7 +9701,7 @@ module.exports = Number.isNaN || function (x) {
 
 "use strict";
 
-var childProcess = __webpack_require__(119);
+var childProcess = __webpack_require__(120);
 var execFileSync = childProcess.execFileSync;
 var lcid = __webpack_require__(75);
 var defaultOpts = {spawn: true};
@@ -11219,13 +11270,12 @@ webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
 webpackEmptyContext.id = 95;
 
-
 /***/ }),
 /* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function (_require) {
-  _require = _require || !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }())
+  _require = _require || !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())
   var main = _require.main
   if (main && isIISNode(main)) return handleIISNode(main)
   else return main ? main.filename : process.cwd()
@@ -12460,6 +12510,52 @@ function prerelease(version, loose) {
 "use strict";
 
 
+var _yargs = __webpack_require__(34);
+
+var _yargs2 = _interopRequireDefault(_yargs);
+
+var _cliResolver = __webpack_require__(31);
+
+var _cliResolver2 = _interopRequireDefault(_cliResolver);
+
+var _logger = __webpack_require__(12);
+
+var _storyWriterProcess = __webpack_require__(33);
+
+var _multiResolver = __webpack_require__(32);
+
+var _multiResolver2 = _interopRequireDefault(_multiResolver);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var args = (0, _yargs2.default)().usage('$0 [options]').options({
+  searchDir: {
+    array: true,
+    desc: 'The directory or directories, relative to the project root, to search for files in.'
+  },
+  pattern: {
+    desc: 'The directory or directories, relative to the project root, to search for files in.',
+    type: 'string'
+  },
+  outputFile: {
+    desc: 'The directory or directories, relative to the project root, to search for files in.',
+    type: 'string'
+  }
+}).help().argv;
+
+var cliConfig = (0, _cliResolver2.default)(args);
+var pathConfig = (0, _multiResolver2.default)(process.cwd(), cliConfig);
+(0, _logger.info)('\nGenerating Dynamic Storybook File List\n');
+
+(0, _storyWriterProcess.writeOutStoryLoader)(pathConfig);
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -12477,7 +12573,7 @@ function loadStories(pattern) {
 }
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12515,6 +12611,7 @@ function getRelativePaths(fromDir, files) {
     if (relativePath.substr(0, 2) !== '..' || relativePath.substr(0, 2) !== './') {
       relativePath = './' + relativePath;
     }
+    relativePath = __webpack_require__(122).platform() === 'win32' ? relativePath.replace(/\\/g, '/') : relativePath;
 
     return {
       relative: relativePath,
@@ -12545,10 +12642,10 @@ function writeFile(files, outputPath) {
 }
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var licenseIDs = __webpack_require__(103);
+var licenseIDs = __webpack_require__(104);
 
 function valid(string) {
   return licenseIDs.indexOf(string) > -1;
@@ -12788,10 +12885,10 @@ module.exports = function(identifier) {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var parser = __webpack_require__(102).parser
+var parser = __webpack_require__(103).parser
 
 module.exports = function (argument) {
   return parser.parse(argument)
@@ -12799,7 +12896,7 @@ module.exports = function (argument) {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {/* parser generated by jison 0.4.17 */
@@ -14160,10 +14257,10 @@ if (typeof module !== 'undefined' && __webpack_require__.c[__webpack_require__.s
 }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(106)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(107)(module)))
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -14502,7 +14599,7 @@ module.exports = [
 ];
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14526,11 +14623,11 @@ module.exports = function (x) {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(101);
-var correct = __webpack_require__(100);
+var parse = __webpack_require__(102);
+var correct = __webpack_require__(101);
 
 var genericWarning = (
   'license should be ' +
@@ -14616,7 +14713,7 @@ module.exports = function(argument) {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -14644,7 +14741,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14660,7 +14757,7 @@ module.exports = function whichModule (exported) {
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14835,7 +14932,7 @@ module.exports = function (str, cols, opts) {
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(1)
@@ -15013,7 +15110,7 @@ module.exports = function (opts) {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -15022,16 +15119,15 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 110;
-
+webpackEmptyContext.id = 111;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var camelCase = __webpack_require__(13)
 var path = __webpack_require__(0)
-var tokenizeArgString = __webpack_require__(112)
+var tokenizeArgString = __webpack_require__(113)
 var util = __webpack_require__(2)
 
 function parse (args, opts) {
@@ -15472,7 +15568,7 @@ function parse (args, opts) {
               return
             }
           } else {
-            config = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND';; throw e; }())
+            config = !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())
           }
 
           setConfigObject(config)
@@ -15791,7 +15887,7 @@ module.exports = Parser
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports) {
 
 // take an un-split argv string and tokenize it.
@@ -15831,7 +15927,7 @@ module.exports = function (argString) {
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(1)
@@ -15878,7 +15974,7 @@ module.exports = applyExtends
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const command = __webpack_require__(28)()
@@ -15956,7 +16052,7 @@ function argumentTypeError (observedType, allowedTypes, position, optional) {
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__dirname) {const fs = __webpack_require__(1)
@@ -16067,7 +16163,7 @@ module.exports = function (yargs, usage, command) {
 /* WEBPACK VAR INJECTION */}.call(exports, "node_modules/yargs/lib"))
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports) {
 
 /*
@@ -16120,7 +16216,7 @@ module.exports = function (a, b) {
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // this file handles outputting usage instructions,
@@ -16615,7 +16711,7 @@ module.exports = function (yargs, y18n) {
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const objFilter = __webpack_require__(10)
@@ -16936,7 +17032,7 @@ module.exports = function (yargs, usage, y18n) {
   }
 
   self.recommendCommands = function (cmd, potentialCommands) {
-    const distance = __webpack_require__(116)
+    const distance = __webpack_require__(117)
     const threshold = 3 // if it takes more than three edits, let's move on.
     potentialCommands = potentialCommands.sort(function (a, b) { return b.length - a.length })
 
@@ -16984,68 +17080,28 @@ module.exports = function (yargs, usage, y18n) {
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports) {
 
 module.exports = require("child_process");
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports) {
 
 module.exports = require("constants");
 
 /***/ }),
-/* 121 */
+/* 122 */
+/***/ (function(module, exports) {
+
+module.exports = require("os");
+
+/***/ }),
+/* 123 */
 /***/ (function(module, exports) {
 
 module.exports = require("stream");
-
-/***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _yargs = __webpack_require__(34);
-
-var _yargs2 = _interopRequireDefault(_yargs);
-
-var _cliResolver = __webpack_require__(31);
-
-var _cliResolver2 = _interopRequireDefault(_cliResolver);
-
-var _logger = __webpack_require__(12);
-
-var _storyWriterProcess = __webpack_require__(33);
-
-var _multiResolver = __webpack_require__(32);
-
-var _multiResolver2 = _interopRequireDefault(_multiResolver);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var args = (0, _yargs2.default)().usage('$0 [options]').options({
-  searchDir: {
-    array: true,
-    desc: 'The directory or directories, relative to the project root, to search for files in.'
-  },
-  pattern: {
-    desc: 'The directory or directories, relative to the project root, to search for files in.',
-    type: 'string'
-  },
-  outputFile: {
-    desc: 'The directory or directories, relative to the project root, to search for files in.',
-    type: 'string'
-  }
-}).help().argv;
-
-var cliConfig = (0, _cliResolver2.default)(args);
-var pathConfig = (0, _multiResolver2.default)(process.cwd(), cliConfig);
-(0, _logger.info)('\nGenerating Dynamic Storybook File List\n');
-
-(0, _storyWriterProcess.writeOutStoryLoader)(pathConfig);
 
 /***/ })
 /******/ ]);
