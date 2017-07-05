@@ -1,12 +1,12 @@
 {
   "name": "react-native-fructose-loader",
-  "version": "0.0.0-development",
+  "version": "0.0.1",
   "repository": "https://github.com/elderfo/react-native-storybook-loader.git",
   "bugs": "https://github.com/elderfo/react-native-storybook-loader/issues",
   "author": "Chris Gestred <cgetsfred@gmail.com>",
   "license": "MIT",
   "bin": {
-    "rnstl": "./dist/rnstl-cli.js"
+    "rnfl": "./dist/rnstl-cli.js"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
